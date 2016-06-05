@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     classNames: ['text-editor'],
+    onUpdate: nil,
 
     _options: {
         skin_url: '/ember-cli-tinymce/tinymce/skins/lightgray',
@@ -24,8 +25,8 @@ export default Ember.Component.extend({
             // bind change event
             component.set('editor', editor);
             editor.on('change', function() {
-              component.set('value',
-                 editor.getContent());
+              component.set('value', editor.getContent());
+              this.sendAction('onUpdate', this.get('value'));
             });
           }
         });
