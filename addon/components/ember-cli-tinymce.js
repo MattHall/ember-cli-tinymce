@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     classNames: ['text-editor'],
-    onUpdate: nil,
+    onUpdate: null,
 
     _options: {
         skin_url: '/ember-cli-tinymce/tinymce/skins/lightgray',
