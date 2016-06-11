@@ -5,7 +5,7 @@ export default Ember.Component.extend({
     onUpdate: null,
 
     _options: {
-        skin_url: '/ember-cli-tinymce/tinymce/skins/lightgray',
+        skin_url: 'https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.3.13/skins/lightgray',
         theme_url: '/ember-cli-tinymce/tinymce/themes/modern/theme.min.js',
         external_plugins: {
           image: '/ember-cli-tinymce/tinymce/plugins/image/plugin.min.js',
