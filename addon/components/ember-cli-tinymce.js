@@ -26,7 +26,7 @@ export default Ember.Component.extend({
             component.set('editor', editor);
             editor.on('change', function() {
               component.set('value', editor.getContent());
-              this.sendAction('onUpdate', this.get('value'));
+              component.sendAction('onUpdate', component.get('value'));
             });
           }
         });
