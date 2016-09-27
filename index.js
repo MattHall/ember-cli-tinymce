@@ -1,6 +1,6 @@
 /* jshint node: true */
 'use strict';
-var pickFiles = require('broccoli-static-compiler');
+var Funnel = require('broccoli-funnel');
 
 module.exports = {
     name: 'ember-cli-tinymce',
@@ -8,7 +8,7 @@ module.exports = {
     included: function(app) {
         this._super.included(app);
 
-        app.import('bower_components/tinymce/tinymce.min.js', {destDir: 'assets/tinymce'});    
+        app.import('bower_components/tinymce/tinymce.min.js', {destDir: 'assets/tinymce'});
         app.import('bower_components/tinymce/jquery.tinymce.min.js', {destDir: 'assets/tinymce'});
         // app.import('bower_components/tinymce/themes/modern/theme.min.js', {destDir: 'assets/tinymce/themes/modern'});
         // app.import('bower_components/tinymce/plugins/image/plugin.min.js', {destDir: 'assets/tinymce/plugins/image'});
@@ -23,7 +23,7 @@ module.exports = {
 
     treeForPublic: function(tree) {
         this.ui.writeLine('Including tinymce assets');
-        var tree = pickFiles('bower_components/tinymce/', {
+        var tree = new Funnel('bower_components/tinymce/', {
           srcDir: '/',
           files: ['**/*.min.js', '**/*.min.css', '**/*.woff', '**/*.ttf'],
           destDir: '/tinymce'
